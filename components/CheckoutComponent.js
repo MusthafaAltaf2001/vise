@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import DoubleClick from "react-native-double-tap";
 import { useNavigation } from "@react-navigation/native";
 import { globalStateContext } from "../Store";
+import * as Speech from "expo-speech";
+
 
 export default function CheckoutComponent() {
   const { userCart, setUserCart } = useContext(globalStateContext);
@@ -15,6 +17,9 @@ export default function CheckoutComponent() {
     estimatedTotal +=
       +currentItemPrice.replace(/\D/g, "") * userCart[i].quantity;
   }
+
+  Speech.stop()
+  Speech.speak(`Your estimated total is ${estimatedTotal} Malaysian Ringgit. Double tap to confirm your purchase.`)
 
   return (
     <View style={styles.container}>

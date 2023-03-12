@@ -30,8 +30,8 @@ import { useFonts } from "expo-font";
 
 const Stack = createNativeStackNavigator();
 
-LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
-LogBox.ignoreAllLogs(); //Ignore all log notifications
+// LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+// LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 const App = () => {
   const screenOptions = {

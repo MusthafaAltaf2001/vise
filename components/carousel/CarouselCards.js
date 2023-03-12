@@ -16,6 +16,7 @@ export default function CarouselCards({ data }) {
   const isCarousel = React.useRef(null);
 
   if (data.length !== 0) {
+    Speech.stop()
     Speech.speak(data[index].voice);
   }
 

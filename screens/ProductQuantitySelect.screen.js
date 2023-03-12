@@ -51,7 +51,8 @@ export default function ProductQuantitySelectScreen({ route, navigation }) {
   };
 
   useEffect(() => {
-    Speech.speak(`Product quantity is ${productQuantity}`)
+    Speech.stop()
+    Speech.speak(`Product quantity is ${productQuantity}. Double tap to continue with this quantity.`)
   }, [productQuantity])
 
   return (
