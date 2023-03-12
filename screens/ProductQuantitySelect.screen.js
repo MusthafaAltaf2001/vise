@@ -5,6 +5,8 @@ import ProductQuantitySelect from "../containers/ProductQuantitySelect";
 import GestureRecognizer from "react-native-swipe-gestures";
 import DoubleClick from "react-native-double-tap";
 import { globalStateContext } from "../Store";
+import * as Speech from 'expo-speech';
+import { useEffect } from "react";
 
 export default function ProductQuantitySelectScreen({ route, navigation }) {
   const product = route.params.item;
@@ -47,6 +49,10 @@ export default function ProductQuantitySelectScreen({ route, navigation }) {
     velocityThreshold: 0.3,
     directionalOffsetThreshold: 80,
   };
+
+  useEffect(() => {
+    Speech.speak(`Product quantity is ${productQuantity}`)
+  }, [productQuantity])
 
   return (
     <GestureRecognizer
