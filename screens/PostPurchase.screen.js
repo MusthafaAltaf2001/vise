@@ -4,6 +4,8 @@ import HeaderTab from "../components/HeaderTab";
 import { useNavigation } from "@react-navigation/native";
 import BrowsePostCheckout from "../containers/BrowsePostCheckout";
 import { globalStateContext } from "../Store";
+import * as Speech from "expo-speech";
+
 
 export default function PostCheckout() {
   const navigation = useNavigation();
@@ -25,18 +27,24 @@ export default function PostCheckout() {
       purchaseHistoryItem,
     ]);
     setUserCart([]);
+    Speech.stop()
     navigation.navigate("Home");
   };
 
   const automaticRedirectToHomepage = () => {
     setTimeout(() => {
       redirectToHome();
-    }, 4000);
+    }, 6000);
   };
 
-  useEffect(() => {
-    automaticRedirectToHomepage();
-  }, []);
+  // useEffect(() => {
+  //   automaticRedirectToHomepage();
+  // }, []);
+
+  automaticRedirectToHomepage();
+  Speech.stop()
+  Speech.speak("Thank you for purchasing from Jo Malone London. You will now be redirected to the homepage")
+
 
   return (
     <View style={styles.container}>
