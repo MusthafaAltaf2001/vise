@@ -1,3 +1,7 @@
+## Note:
+- All commits before 16th February 16th have been lost due to repository migration
+
+
 # blind_community_app
 
 Instructions
